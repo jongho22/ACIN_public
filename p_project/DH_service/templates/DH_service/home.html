@@ -1,0 +1,28 @@
+<h1>동향 분석 서비스 메인 화면 테스트</h1>
+
+
+<form method="post">
+    {% csrf_token %}
+    <div>
+        <h6>- 키워드 입력</h6>
+        <input type="text" name="keyword_input">
+        
+        <h6>- 시작 날짜</h6>
+        <input type="text" name="start_day_input">
+        <h6>- 마지막 날짜</h6>
+        <input type="text" name="end_day_input">
+        
+        
+        <input type="submit" value="검색">
+    </div>
+    
+</form>
+
+{% if keyword_list %}
+    {% for el in keyword_list %}
+    <h1>
+        {{ el.text }}
+        <hr>
+    </h1>
+    {% endfor %}
+{% endif %}
