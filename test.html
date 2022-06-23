@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#!">동향분석 서비스</a>
+            <a class="btn btn-primary" href="#signup">Sign Up</a>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-3"></div>
+                <div class="col-xl-6">
+                    <div class="text-center">
+                        <!-- Page heading-->
+                        <h1 class="mb-5">동향 분석 서비스 메인 화면 테스트</h1>                        
+                        <!-- 검색어 입력 란-->
+                        <div class="row">
+                            <!-- <div class="col"> -->
+                                <form class="d-flex" role="search">
+                                    <input class="form-control me-2" type="search" placeholder="검색어를 입력하세요." aria-label="Search" name="keyword_input">
+                                    <button class="btn btn-outline-success" type="submit">search</button>
+                                </form>
+                            <!-- </div> -->
+                        </div>                                                    
+                    </div>
+                </div>
+                <div class="col-3"></div>
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <hr>
+                        <h6>[기간 선택]</h6>
+
+                        <form method="post">
+                            <!-- {% csrf_token %} -->
+                            <div>
+                                시작 날짜 :
+                                <input type="date" value="null" name = "start" min="2000-01-01" max="2022-06-22">
+                                <!--<p><input type="submit" value="선택"></p>-->
+                                ~
+                                마지막 날짜 : 
+                                <input type="date" name = "end" value="null" min="2000-01-01" max="2022-06-22">
+                                
+                                <input type="submit" value="확인">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+            </div><!--<div class="row justify-content-center">-->
+
+        </div>        
+    </header>   
+    
+        
+        {% if keyword_list %}
+            {% for el in keyword_list %}
+            <h6>
+                {{ el.text }}
+                <hr>
+            </h6>
+            {% endfor %}
+        {% endif %}
+
+</body>
+</html>
