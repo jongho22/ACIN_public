@@ -2,27 +2,32 @@
 
 
 <form method="post">
+<hr>
     {% csrf_token %}
     <div>
-        <h6>- 키워드 입력</h6>
+        <p>- 키워드 입력</p>
         <input type="text" name="keyword_input">
-        
-        <h6>- 시작 날짜</h6>
-        <input type="text" name="start_day_input">
-        <h6>- 마지막 날짜</h6>
-        <input type="text" name="end_day_input">
-        
-        
-        <input type="submit" value="검색">
     </div>
+    <div>
+        <p>- 시작 날짜</p>
+        <input type="date" value="null" name = "start" min="2000-01-01" max="2022-06-22">
+        <!--<p><input type="submit" value="선택"></p>-->
+    </div>
+    <div>
+        <p>- 마지막 날짜</p>
+        <p><input type="date" name = "end" value="null" min="2000-01-01" max="2022-06-22"></p>
+    </div>
+    <input type="submit" value="검색">
+<hr>
     
 </form>
 
 {% if keyword_list %}
     {% for el in keyword_list %}
-    <h1>
+    <h6>
         {{ el.text }}
         <hr>
-    </h1>
+    </h6>
     {% endfor %}
 {% endif %}
+
